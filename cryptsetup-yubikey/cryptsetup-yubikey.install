@@ -1,0 +1,22 @@
+#!/bin/bash
+
+add_hook() {
+    # add 'yubikey' hook to mkinitcpio config
+    hooks=$(grep ^HOOKS etc/mkinitcpio.conf | grep yubikey)
+    if [ "$hooks" = "" ]; then
+        sed 's/^HOOKS="\([^"]*\) \([^"]*encrypt\) \([^"]*\)"/HOOKS="\1 yubikey \2 \3"/' -i etc/mkinitcpio.conf
+    fi
+}
+
+remove_hook() {
+    # remove 'yubikey' hook from mkinitcpio config
+    sed '/^HOOKS/s/ *yubikey//' -i etc/mkinitcpio.conf
+}
+
+post_install() {
+    add_hook
+}
+
+post_remove() {    
+    remove_hook
+}

@@ -1,0 +1,33 @@
+# Maintainer: Ryon Sherman <ryon.sherman@gmail.com>
+pkgname=cryptsetup-yubikey-git
+pkgver=r2.606658b
+pkgrel=1
+pkgdesc="https://github.com/ryonsherman/cryptsetup-yubikey"
+arch=('i686' 'x86_64')
+url="A mkinitcpio hook to enable the use of a YubiKey when unlocking an encrypted root device"
+license=('MIT')
+groups=()
+depends=('yubikey-personalization-git')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install='cryptsetup-yubikey.install'
+changelog=
+source=('git+https://github.com/ryonsherman/cryptsetup-yubikey')
+md5sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/cryptsetup-yubikey"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+  cd "$srcdir/cryptsetup-yubikey"
+  
+  install -Dm644 "cryptsetup-yubikey.hook"     "$pkgdir/usr/lib/initcpio/hooks/yubikey"
+  install -Dm644 "cryptsetup-yubikey.install"  "$pkgdir/usr/lib/initcpio/install/yubikey"
+}
