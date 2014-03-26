@@ -1,6 +1,9 @@
 update:
+	make clean
 	make download
 	make patch
+	make build
+	make install
 	make clean
 
 download:
@@ -13,6 +16,12 @@ patch:
 	sed -i 's/cmake .. /cmake .. -DCMAKE_BUILD_TYPE="Release" /g' PKGBUILD
 
 clean:
-	rm compiz-bzr.tar.gz*
+	rm -rf compiz-bzr*.tar.* compiz pkg srco
 
-.PHONY: update patch clean
+build:
+	makepkg -sf
+
+install:
+	yaourt -U compiz-bzr*.tar.xz
+
+.PHONY: update patch clean build install
