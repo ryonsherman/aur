@@ -1,4 +1,4 @@
-# Maintainer: rs0 <rs0@secretco.de.com>
+# Maintainer: /dev/rs0 <rs0@secretco.de.com>
 
 _gitname="qnrq"
 _pkgname="rc_openpgpjs"
@@ -9,7 +9,7 @@ pkgrel=1
 pkgdesc="Roundcube plugin that provides OpenPGPs functionality."
 arch=('any')
 url="https://github.com/${_gitname}/${_pkgname}"
-license=('BSD')
+license=('GPL2')
 depends=('roundcubemail>=0.9.0')
 makedepends=('git')
 source=(git+https://github.com/${_gitname}/${_pkgname}.git)
