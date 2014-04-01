@@ -3,18 +3,18 @@
 # Contributor: Nathan Hulse <nat.hulse@gmail.com>
 # Contributor: Charles Bos <charlesbos1 AT gmail>
 
-pkgname=compiz-dev
+pkgname=compiz-core-devel
 _pkgseries=0.9.10
 pkgver=${_pkgseries}.0
-pkgrel=3
+pkgrel=1
 pkgdesc="Composite manager for Aiglx and Xgl, with plugins and CCSM (development milestone)"
 
 arch=('i686' 'x86_64')
 license=('GPL' 'LGPL' 'MIT')
 url="https://launchpad.net/compiz"
 
-replaces=('compiz-bzr' 'compiz-core' 'compiz-fusion-plugins-main' 'compiz-fusion-plugins-extra' 'compiz-decorator-gtk' 'compiz-decorator-kde' 'libcompizconfig' 'compizconfig-python' 'compizconfig-backend-gconf' 'compiz-bcop' 'ccsm')
-conflicts=('compiz-bzr' 'compiz-core' 'compiz-fusion-plugins-main' 'compiz-fusion-plugins-extra' 'compiz-decorator-gtk' 'compiz-decorator-kde' 'libcompizconfig' 'compizconfig-python' 'compizconfig-backend-gconf' 'compiz-bcop' 'ccsm')
+replaces=('compiz-core-bzr' 'compiz-core' 'compiz-fusion-plugins-main' 'compiz-fusion-plugins-extra' 'compiz-decorator-gtk' 'compiz-decorator-kde' 'libcompizconfig' 'compizconfig-python' 'compizconfig-backend-gconf' 'compiz-bcop' 'ccsm')
+conflicts=('compiz-core-bzr' 'compiz-core' 'compiz-fusion-plugins-main' 'compiz-fusion-plugins-extra' 'compiz-decorator-gtk' 'compiz-decorator-kde' 'libcompizconfig' 'compizconfig-python' 'compizconfig-backend-gconf' 'compiz-bcop' 'ccsm')
 
 makedepends=('intltool' 'cmake')
 depends=('boost' 'xorg-server' 'libxcomposite' 'startup-notification' 'librsvg' 'dbus' 'mesa' 'libxslt' 'fuse' 'glibmm' 'libxrender' 'gmock' 'libwnck' 'pygtk' 'desktop-file-utils' 'pyrex' 'protobuf' 'metacity' 'gconf' 'gnome-themes-standard' 'glu')
@@ -26,7 +26,7 @@ optdepends=(
   'xorg-xprop: grab various window properties for use in window matching rules'
 )
 
-install='compiz-dev.install'
+install='compiz-core-devel.install'
 source=("https://launchpad.net/compiz/${_pkgseries}/${pkgver}/+download/compiz-${pkgver}.tar.bz2")
 md5sums=('c65fe20e464405889d77a0783fa52f20')
 
