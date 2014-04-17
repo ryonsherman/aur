@@ -7,21 +7,21 @@ update:
 	make clean
 
 download:
-	wget https://aur.archlinux.org/packages/co/compiz-bzr/compiz-bzr.tar.gz
-	tar zxvf compiz-bzr.tar.gz
-	mv compiz-bzr/* .
-	rm -rf compiz-bzr
+	wget https://aur.archlinux.org/packages/co/compiz-core-bzr/compiz-core-bzr.tar.gz
+	tar zxvf compiz-core-bzr.tar.gz
+	mv compiz-core-bzr/* .
+	rm -rf compiz-core-bzr
 
 patch:
 	sed -i 's/cmake .. /cmake .. -DCMAKE_BUILD_TYPE="Release" /g' PKGBUILD
 
 clean:
-	rm -rf compiz-bzr*.tar.* compiz pkg srco
+	rm -rf compiz-core-bzr*.tar.* compiz pkg src
 
 build:
 	makepkg -sf
 
 install:
-	yaourt -U compiz-bzr*.tar.xz
+	yaourt -U compiz-core-bzr*.tar.xz
 
 .PHONY: update patch clean build install
